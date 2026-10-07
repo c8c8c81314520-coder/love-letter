@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="餡餅寫給茶茶的專屬情書">
+<meta name="theme-color" content="#e87591">
+<meta property="og:title" content="給茶茶的專屬情書 ♥">
+<meta property="og:description" content="餡餅把想說很久的話，都藏在這裡了。">
+<title>給餡餅與茶茶的專屬情書</title>
+
+<style>
+:root{
+color-scheme:light dark;
+--bg:#fff6f7;
+--surface:#ffffffcc;
+--text:#442a35;
+--muted:#806874;
+--accent:#e87591;
+--accent2:#f4b8c7;
+--line:#f0dbe1
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+background:#fff6f7;
+color:#442a35
+}
+#app{
+min-height:100vh;
+background:var(--bg);
+overflow:hidden
+}
+.hero{
+min-height:100vh;
+display:grid;
+place-items:center;
+position:relative;
+padding:40px 20px;
+background:radial-gradient(circle at 50% 25%,#fff 0,#fff7f8 32%,var(--bg) 70%)
+}
+.glow{
+position:absolute;
+width:420px;
+height:420px;
+border-radius:50%;
+background:#f7b6c8;
+filter:blur(90px);
+opacity:.25
+}
+.hero-inner{
+text-align:center;
+max-width:760px;
+position:relative
+}
+.eyebrow{
+letter-spacing:.3em;
+font-size:12px;
+color:var(--accent);
+font-weight:700
+}
+h1{
+font-size:clamp(46px,9vw,94px);
+line-height:.98;
+margin:22px 0 18px;
+letter-spacing:-.05em
+}
+.hero p{
+font-size:18px;
+color:var(--muted);
+line-height:1.9
+}
+.names{
+font-size:20px;
+font-weight:700;
+margin-top:30px
+}
+.names span{
+color:var(--accent);
+padding:0 12px
+}
+.btn{
+border:0;
+border-radius:999px;
+padding:15px 26px;
+font:inherit;
+font-weight:700;
+cursor:pointer;
+background:var(--accent);
+color:white;
+box-shadow:0 12px 30px #e8759140;
+transition:.25s
+}
+.btn:hover{transform:translateY(-2px)}
+.scroll{
+margin-top:42px;
+font-size:12px;
+color:var(--muted);
+animation:bob 2s infinite
+}
+@keyframes bob{
+50%{transform:translateY(7px)}
+}
+section{
+padding:100px 20px;
+max-width:1050px;
+margin:auto
+}
+.section-label{
+color:var(--accent);
+font-weight:800;
+font-size:12px;
+letter-spacing:.18em
+}
+h2{
+font-size:clamp(32px,5vw,54px);
+margin:12px 0 20px;
+letter-spacing:-.03em
+}
+.lead{
+max-width:650px;
+color:var(--muted);
+line-height:1.9
+}
+.story{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:22px;
+margin-top:42px
+}
+.card{
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:28px;
+padding:30px;
+box-shadow:0 18px 60px #5b27330d;
+backdrop-filter:blur(14px)
+}
+.card .date{
+font-size:12px;
+color:var(--accent);
+font-weight:800;
+letter-spacing:.1em
+}
+.card h3{
+font-size:25px;
+margin:12px 0
+}
+.card p{
+color:var(--muted);
+line-height:1.8;
+margin:0
+}
+.timeline{
+position:relative;
+margin-top:50px;
+padding-left:28px;
+border-left:2px solid var(--accent2)
+}
+.event{
+margin:0 0 36px;
+position:relative
+}
+.event:before{
+content:"";
+position:absolute;
+left:-37px;
+top:5px;
+width:16px;
+height:16px;
+border-radius:50%;
+background:var(--accent);
+box-shadow:0 0 0 6px var(--bg)
+}
+.memory-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:38px
+}
+.memory{
+min-height:220px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+border-radius:28px;
+padding:24px;
+color:white;
+overflow:hidden;
+position:relative;
+background:linear-gradient(145deg,#d9869d,#7e5262)
+}
+.memory:nth-child(2){
+background:linear-gradient(145deg,#f0b7a7,#956271)
+}
+.memory:nth-child(3){
+background:linear-gradient(145deg,#9c8db8,#5c4c73)
+}
+.memory:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(transparent 30%,#24141a99)
+}
+.memory>*{
+position:relative;
+z-index:1
+}
+.memory strong{font-size:22px}
+.memory small{
+opacity:.8;
+margin-top:7px
+}
+.letter{
+max-width:760px;
+margin:35px auto 0;
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:32px;
+padding:38px;
+box-shadow:0 25px 80px #5b273314
+}
+.letter p{
+line-height:2;
+font-size:17px
+}
+.signature{
+margin-top:30px;
+text-align:right;
+font-weight:800;
+color:var(--accent)
+}
+.question{
+text-align:center;
+padding-bottom:120px
+}
+.question h2{
+max-width:800px;
+margin-left:auto;
+margin-right:auto
+}
+.actions{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+margin-top:34px
+}
+.no{
+background:transparent;
+color:var(--accent);
+border:1px solid var(--accent2);
+box-shadow:none
+}
+#answer{
+min-height:0;
+max-height:0;
+overflow:hidden;
+transition:.7s ease;
+text-align:center
+}
+#answer.show{
+min-height:270px;
+max-height:500px;
+padding:70px 20px
+}
+.hearts{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:5
+}
+.heart{
+position:absolute;
+bottom:-40px;
+font-size:24px;
+animation:float 4s linear forwards
+}
+@keyframes float{
+to{
+transform:translateY(-110vh) rotate(25deg);
+opacity:0
+}
+}
+footer{
+text-align:center;
+padding:30px;
+color:var(--muted);
+font-size:12px
+}
+@media(max-width:700px){
+.story,.memory-grid{grid-template-columns:1fr}
+.hero{min-height:92vh}
+section{padding:75px 20px}
+.letter{padding:26px}
+}
+@media(prefers-color-scheme:dark){
+:root{
+--bg:#21171c;
+--surface:#302329e8;
+--text:#fff0f3;
+--muted:#cbb5bd;
+--line:#523941
+}
+body{background:#21171c}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" loop preload="auto">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div id="app">
+
+<div class="hearts" id="hearts"></div>
+
+<header class="hero">
+<div class="glow"></div>
+
+<div class="hero-inner">
+
+<div class="eyebrow">A LITTLE WEBSITE FOR US</div>
+
+<h1>
+這不是普通的網站。<br>
+這是寫給茶茶的。
+</h1>
+
+<p>
+如果妳願意，就慢慢往下看。<br>
+因為我把一些想說很久的話，都藏在這裡了。
+</p>
+
+<div class="names">
+餡餅 <span>♥</span> 茶茶
+</div>
+
+<div style="margin-top:32px">
+<button class="btn" onclick="startMusic();document.getElementById('story').scrollIntoView()">
+打開我們的故事
+</button>
+</div>
+
+<div class="scroll">
+↓ 往下走，還有很多話想對妳說
+</div>
+
+</div>
+</header>
+
+
+<section id="story">
+
+<div class="section-label">OUR STORY</div>
+
+<h2>
+從「遇見」開始，<br>
+慢慢變成「我們」。
+</h2>
+
+<p class="lead">
+有些人出現在生命裡，好像只是剛好；但回頭看才發現，每一次相遇、每一次聊天、每一個小小的瞬間，都在把兩個人推向同一個故事。
+</p>
+
+<div class="story">
+
+<div class="card">
+<div class="date">09 / 26</div>
+<h3>我們第一次遇見</h3>
+<p>
+09/26，是餡餅遇見茶茶的日子。
+那一天沒有想過，這個日期後來會變得這麼特別。
+</p>
+</div>
+
+<div class="card">
+<div class="date">THE LITTLE THINGS</div>
+<h3>我開始記住妳</h3>
+<p>
+記住妳喜歡什麼、在意什麼，也開始期待每天都能跟妳說上幾句話。
+</p>
+</div>
+
+</div>
+</section>
+
+
+<section>
+
+<div class="section-label">OUR TIMELINE</div>
+
+<h2>從 09/26 開始的故事。</h2>
+
+<div class="timeline">
+
+<div class="event">
+<div class="date">09 / 26</div>
+<h3>我們相識了</h3>
+<p class="lead">
+這一天，餡餅和茶茶的故事有了第一個日期。
+</p>
+</div>
+
+<div class="event">
+<div class="date">AFTER THAT</div>
+<h3>一點一點變得重要</h3>
+<p class="lead">
+從認識，到在意，再到想把心意認真地告訴妳。
+</p>
+</div>
+
+<div class="event">
+<div class="date">THE TURNING POINT</div>
+<h3>我們越來越靠近</h3>
+<p class="lead">
+這幾個星期，我們的互動慢慢變多了，也讓我鼓起勇氣走近妳。
+</p>
+</div>
+
+</div>
+</section>
+
+
+<section>
+
+<div class="section-label">LITTLE MEMORIES</div>
+
+<h2>我最喜歡的，是這些小事。</h2>
+
+<div class="memory-grid">
+
+<div class="memory">
+<strong>我就喜歡妳在鬧</strong>
+<small>我在笑。</small>
+</div>
+
+<div class="memory">
+<strong>我想永遠永遠當妳的</strong>
+<small>小奶狗..</small>
+</div>
+
+<div class="memory">
+<strong>我終於鼓起勇氣</strong>
+<small>因為我不想再只站在原地看著妳。</small>
+</div>
+
+</div>
+</section>
+
+
+<section>
+
+<div class="section-label">A LETTER</div>
+
+<h2>這一次，換我親口告訴妳。</h2>
+
+<div class="letter">
+
+<p>茶茶，</p>
+
+<p>
+第一次遇到妳的時候，感覺妳很活潑，處理事情也不會像其他女生發瘋一樣，而是很冷靜地處理事情或看待這件事情。所以我覺得，妳很難接近，很有自己的想法之類的。最主要也很多朋友，讓我打起了退堂鼓。
+</p>
+
+<p>
+這幾個月下來，讓我覺得還是默默當朋友就好了呢？但這幾個星期，我們感情好像發生了變化，變得越來越有互動，讓我們走得更近。
+</p>
+
+<p>
+當那時候妳主動找我組情，我心裡超開心，但我真的很怕愛上妳＝（暈船）。我也害怕組情了我暈船、妳不喜歡，然後會吵架或者尷尬之類的，也很怕講錯什麼話、做錯什麼事情讓妳不開心。
+</p>
+
+<p>
+所以一開始我選擇拒絕，結果妳過幾天就找到掛情了。我很驚訝，也有點失望啦。但我沒資格失望，因為是我先拒絕妳，我真的該罰。
+</p>
+
+<p>
+幸好的是，我主動了。因為再不主動，妳就被別人帶走了。我也想過，不主動怎麼有資格去愛妳。
+</p>
+
+<p>
+當妳跟我說妳有煥煥的時候，其實我心裡反而是心疼。因為妳自己默默在撐住這個家，也才知道為什麼妳要打兩份工。
+</p>
+
+<p>
+雖然遠距離，沒有辦法讓我們每天見面、一起吃飯啦，無聊就去哪裡逛逛夜市之類的，但只要妳發生什麼事情需要我，我一定會跑到妳身邊。有空我也會上去找妳，好嗎？希望妳不要厭煩……
+</p>
+
+<p>
+未來的我們會越來越好。但說都很會說哈哈哈，我會用行動證明我愛妳。
+</p>
+
+<p>
+<strong>妳準備跟我一起走下去了嗎？</strong>
+</p>
+
+<div class="signature">
+— 餡餅 ♥
+</div>
+
+</div>
+</section>
+
+
+<section class="question">
+
+<div class="section-label">ONE LAST QUESTION</div>
+
+<h2>茶茶，妳願意跟我在一起嗎？</h2>
+
+<p class="lead" style="margin:auto">
+這一次，我想把餡餅最認真的心意，交給妳。
+</p>
+
+<div class="actions">
+
+<button class="btn" onclick="sayYes()">
+我願意 ♥
+</button>
+
+<button class="btn no" id="maybe" onclick="moveButton()">
+讓我再想一下
+</button>
+
+</div>
+
+</section>
+
+
+<div id="answer">
+
+<h2>那就說好了。♥</h2>
+
+<p class="lead" style="margin:auto">
+從今天開始，不只是「餡餅和茶茶」，而是「我們」。<br>
+以後請多多指教❤️ ❤️ ❤️
+</p>
+
+</div>
+
+
+<footer>
+Made with love · 餡餅 × 茶茶
+</footer>
+
+</div>
+
+
+<script>
+
+const bgm=document.getElementById('bgm');
+
+function startMusic(){
+bgm.volume=.28;
+bgm.play().catch(()=>{})
+}
+
+function sayYes(){
+
+startMusic();
+
+document.getElementById('answer').classList.add('show');
+
+for(let i=0;i<45;i++){
+
+setTimeout(()=>{
+
+const h=document.createElement('div');
+
+h.className='heart';
+
+h.textContent=['♥','♡','💕','💗'][Math.floor(Math.random()*4)];
+
+h.style.left=Math.random()*100+'%';
+
+h.style.fontSize=(16+Math.random()*26)+'px';
+
+h.style.animationDuration=(3+Math.random()*3)+'s';
+
+document.getElementById('hearts').appendChild(h);
+
+setTimeout(()=>h.remove(),6500);
+
+},i*55);
+
+}
+
+document.getElementById('answer').scrollIntoView({
+behavior:'smooth'
+});
+
+}
+
+function moveButton(){
+
+const b=document.getElementById('maybe');
+
+b.style.transform=
+'translate('+
+(Math.random()*180-90)+'px,'+
+(Math.random()*100-50)+'px)';
+
+}
+
+</script>
+
+</body>
+</html>
